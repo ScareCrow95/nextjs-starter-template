@@ -1,9 +1,12 @@
+import Layout from '../components/layout/Layout'
 import { RootStoreProvider } from '../provider/rootStoreProvider'
 
 function MyApp({ Component, pageProps }) {
   return (
     <RootStoreProvider hydrationData={pageProps.hydrationData}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </RootStoreProvider>
   )
 }
