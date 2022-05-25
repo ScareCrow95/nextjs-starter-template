@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { Box, Text, Center, Flex, Image, Circle, Icon } from '@chakra-ui/react'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
 import { observer } from 'mobx-react-lite'
+import { darkTheme } from '../theme/dark'
+import { lightTheme } from '../theme/light'
 import Header from './Header'
 
 const Layout = observer(({ children }) => {
   return (
-    <Flex direction='column'>
-      <Header />
-      <Flex>{children}</Flex>
-    </Flex>
+    <ChakraProvider theme={store.theme === 'light' ? darkTheme : lightTheme}>
+      <Flex direction='column'>
+        <Header />
+        <Flex>{children}</Flex>
+      </Flex>
+    </ChakraProvider>
   )
 })
 
